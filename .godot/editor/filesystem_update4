@@ -1,0 +1,13 @@
+res://Scenes/Game/main.tscn
+res://Scenes/Game/main.gd
+res://Scenes/Game/game.tscn
+res://Scenes/Game/plane'.tscn
+res://Scenes/Game/barriar.tscn
+res://Scenes/Game/pipe.tscn
+res://Scenes/Game/laser.tscn
+res://Scenes/Game/pipes.tscn
+res://Scenes/Game/hud.tscn
+res://Scenes/Game/hud2.tscn
+res://Scenes/Game/node_2d.tscn
+res://Scenes/Game/scrolling_bg.tscn
+res://Scenes/Game/scrolling_layer.tscn

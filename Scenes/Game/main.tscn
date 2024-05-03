@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf5nypcbqfqxd"]
+
+[ext_resource type="Script" path="res://Scenes/Game/main.gd" id="1_h85cc"]
+[ext_resource type="Texture2D" uid="uid://c0dp7mh7ndqso" path="res://assets/background/sky.png" id="1_l7s25"]
+[ext_resource type="FontFile" uid="uid://cmyedswjmevkb" path="res://assets/fonts/Skranji-Bold.ttf" id="1_lb715"]
+[ext_resource type="FontFile" uid="uid://dko5iy5qke0d5" path="res://assets/fonts/Skranji-Regular.ttf" id="2_0e5b7"]
+[ext_resource type="AudioStream" uid="uid://dux4w1v67p7ds" path="res://assets/audio/bgm_menu.mp3" id="5_mppjo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dr80p"]
+font_color = Color(1, 0.176471, 0.12549, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h85cc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l7s25")
+expand_mode = 1
+
+[node name="MC" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="TextureRect/MC"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.882353, 0.0666667, 0.439216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.784314, 1)
+theme_override_fonts/font = ExtResource("1_lb715")
+theme_override_font_sizes/font_size = 64
+text = "Tappy
+ Plane"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="press" type="Label" parent="TextureRect/MC"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.172549, 1, 1)
+theme_override_fonts/font = ExtResource("2_0e5b7")
+theme_override_font_sizes/font_size = 50
+text = "Press Space
+ to play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HsText" type="Label" parent="TextureRect/MC"]
+layout_mode = 2
+size_flags_vertical = 12
+theme_override_colors/font_color = Color(0, 0.662745, 0.941176, 1)
+theme_override_fonts/font = ExtResource("2_0e5b7")
+text = "0000"
+label_settings = SubResource("LabelSettings_dr80p")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSScore" type="Label" parent="TextureRect/MC"]
+layout_mode = 2
+size_flags_vertical = 12
+theme_override_colors/font_color = Color(0, 0.737255, 0.368627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.870588, 1)
+theme_override_fonts/font = ExtResource("2_0e5b7")
+text = "  High Score"
+label_settings = SubResource("LabelSettings_dr80p")
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mppjo")
+volume_db = -8.114
+autoplay = true

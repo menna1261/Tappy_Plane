@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbg17hltogf2r"]
+
+[ext_resource type="Texture2D" uid="uid://bd20o0dc6jmck" path="res://assets/pipes/laser2.png" id="1_lkjd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r2y1"]
+size = Vector2(9, 196)
+
+[sub_resource type="Animation" id="Animation_lc4so"]
+resource_name = "flash"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vibsp"]
+_data = {
+"flash": SubResource("Animation_lc4so")
+}
+
+[node name="laser" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 8)
+texture = ExtResource("1_lkjd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 1)
+shape = SubResource("RectangleShape2D_1r2y1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vibsp")
+}
+autoplay = "flash"

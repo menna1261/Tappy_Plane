@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://calecl2j2cl66"]
+
+[ext_resource type="Script" path="res://Scenes/Game/hud2.gd" id="1_qhqp4"]
+[ext_resource type="Texture2D" uid="uid://dlhexp1wqdkcj" path="res://assets/laugh-point.png" id="2_s4jpw"]
+[ext_resource type="FontFile" uid="uid://cmyedswjmevkb" path="res://assets/fonts/Skranji-Bold.ttf" id="3_o4pm5"]
+[ext_resource type="AudioStream" uid="uid://fsybmfvjr64m" path="res://assets/cat-laugh-meme-1.mp3" id="4_ydcij"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhqp4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ydcij")
+volume_db = -20.857
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Laugh-point" type="Sprite2D" parent="."]
+position = Vector2(236, 391)
+scale = Vector2(0.578313, 0.566265)
+texture = ExtResource("2_s4jpw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -16.0
+offset_right = 203.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o4pm5")
+theme_override_font_sizes/font_size = 40
+text = "PLAY AGAIN  LOSER"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
